@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Karya - Fakultas DKV ITB Ahmad Dahlan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav { mix-blend-mode: normal; background: var(--black); color: var(--white); padding: 12px 40px; }
+    .page-wrapper { padding-top: 130px; padding-bottom: 80px; min-height: 80vh; }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 40px 0 50px;
+    }
+    .filter-btn {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 1px;
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: 2px solid #333;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--black);
+    }
+    .gallery-page-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .gallery-page-grid .gallery-card {
+      aspect-ratio: 1;
+    }
+    @media (max-width: 900px) {
+      .gallery-page-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .gallery-page-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="logo">
+      <a href="index.html" class="r-mark" style="text-decoration:none;color:inherit;">D</a>
+    </div>
+    <button class="menu-btn">MENU +</button>
+  </nav>
+
+  <div class="page-wrapper dark-bg">
+    <div class="container">
+      <h2 class="section-title massive text-center">GALERI <span class="outline-text">KARYA</span></h2>
+      <p class="body-text text-center mx-auto mt-2" style="color: var(--grey-text); max-width: 560px;">
+        Kumpulan karya terbaik mahasiswa DKV ITB Ahmad Dahlan. Dari branding, UI/UX, ilustrasi, fotografi, hingga motion graphic.
+      </p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">SEMUA</button>
+        <button class="filter-btn" data-filter="branding">BRANDING</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX</button>
+        <button class="filter-btn" data-filter="ilustrasi">ILUSTRASI</button>
+        <button class="filter-btn" data-filter="foto">FOTOGRAFI</button>
+        <button class="filter-btn" data-filter="motion">MOTION</button>
+      </div>
+
+      <div class="gallery-page-grid">
+        <article class="gallery-card" data-cat="branding">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Branding">
+          <span class="gallery-badge">BRANDING</span>
+        </article>
+        <article class="gallery-card" data-cat="uiux">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="UI/UX">
+          <span class="gallery-badge">UI/UX DESIGN</span>
+        </article>
+        <article class="gallery-card" data-cat="ilustrasi">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ilustrasi">
+          <span class="gallery-badge">ILUSTRASI</span>
+        </article>
+        <article class="gallery-card" data-cat="branding">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Desain Grafis">
+          <span class="gallery-badge">DESAIN GRAFIS</span>
+        </article>
+        <article class="gallery-card" data-cat="foto">
+          <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fotografi">
+          <span class="gallery-badge">FOTOGRAFI</span>
+        </article>
+        <article class="gallery-card" data-cat="motion">
+          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Motion">
+          <span class="gallery-badge">MOTION GRAFIS</span>
+        </article>
+        <article class="gallery-card" data-cat="ilustrasi">
+          <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Poster">
+          <span class="gallery-badge">POSTER DESIGN</span>
+        </article>
+        <article class="gallery-card" data-cat="uiux">
+          <img src="https://i.pinimg.com/736x/f9/b3/5b/f9b35b3fff55383596f2325f312c703e.jpg" alt="App Design">
+          <span class="gallery-badge">UI/UX DESIGN</span>
+        </article>
+        <article class="gallery-card" data-cat="foto">
+          <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portrait">
+          <span class="gallery-badge">FOTOGRAFI</span>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer mesh-bg">
+    <div class="container relative">
+      <h1 class="footer-title">DKV ITB-AD</h1>
+      <div class="footer-grid mt-4">
+        <div><div class="footer-brand">DESAIN KOMUNIKASI<br>VISUAL<br>ITB AHMAD DAHLAN</div></div>
+        <div>
+          <ul class="footer-links">
+            <li><a href="paket_layanan.html">PEMINATAN</a></li>
+            <li><a href="tentang_kami.html">TENTANG KAMI</a></li>
+            <li><a href="tim.html">DOSEN</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="footer-links">
+            <li><a href="kontak.html">KONTAK</a></li>
+            <li><a href="galeri.html">GALERI KARYA</a></li>
+            <li><a href="paket_layanan.html">Q&amp;A</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-social-label">Follow us</div>
+          <ul class="footer-links">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">INSTAGRAM</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YOUTUBE</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LINKEDIN</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chat-btn">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"/></svg>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Simple filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.gallery-page-grid .gallery-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
