@@ -633,7 +633,7 @@
     });
 
     // Wipe images
-    const wipeGroups = ['.image-grid .img-card', '.about-image .octagon-mask', '.editorial-img'];
+    const wipeGroups = ['.image-grid .img-card', '.about-image .octagon-mask'];
     wipeGroups.forEach((sel) => {
       document.querySelectorAll(sel).forEach((el, i) => {
         el._vwIndex = i;
@@ -1050,4 +1050,3 @@
     init();
   }
 })();
-
