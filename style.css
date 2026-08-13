@@ -45,6 +45,7 @@ a {
 
 .relative { position: relative; }
 .text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
 .mt-2 { margin-top: 1rem; }
 .mt-4 { margin-top: 3rem; }
 .mb-4 { margin-bottom: 3rem; }
@@ -463,4 +464,37 @@ section { padding: 100px 0; }
   
   .badge-spin { display: none; }
   section { padding: 60px 0; }
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE ENHANCEMENTS
+   Memastikan seluruh halaman tetap rapi di ukuran layar mana pun,
+   dari HP kecil (320px) sampai desktop lebar.
+   ========================================================================== */
+
+/* Cegah elemen mana pun memaksa scroll horizontal */
+html { overflow-x: hidden; width: 100%; }
+img, svg, video, iframe { max-width: 100%; height: auto; }
+.gallery-card img, .team-img, .team-member img, .octagon-mask img,
+.editorial-img, .img-card img { height: 100%; } /* pertahankan crop pada elemen yang memang butuh height:100% */
+
+/* Container & nav menyesuaikan padding di layar sempit */
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .nav { padding: 16px 24px; }
+  .hero .container { padding-top: 110px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 18px; }
+  .nav { padding: 14px 18px; }
+  .r-mark { font-size: 1.6rem; }
+  .menu-btn { font-size: 1rem; padding: 7px 16px; }
+  .hero .container { padding-top: 100px; }
+  .hero-subtitle { font-size: 1rem; }
+  .btn-pill { font-size: 1.05rem; padding: 5px 5px 5px 18px; }
+  .btn-pill .btn-icon, .btn-pill .btn-icon-orange { width: 32px; height: 32px; }
+  section { padding: 48px 0; }
+  .typographic-cluster .word { margin-right: 14px; }
+  .footer-title { letter-spacing: -1px; }
 }
