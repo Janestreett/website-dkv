@@ -33,7 +33,7 @@
     .form-status { margin-top: 14px; font-size: 0.95rem; font-weight: 500; text-align: center; min-height: 20px; }
     .form-status.success { color: #4ADE80; }
     .form-status.error { color: #F87171; }
-    /* honeypot: field jebakan bot, disembunyikan dari pengguna asli lewat CSS (bukan type="hidden") */
+    /* honeypot: field jebakan bot, disembunyikan dari pengguna asli */
     .hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; }
 
     .map-embed { border-radius: 24px; overflow: hidden; margin-top: 60px; border: 1px solid #333; }
@@ -83,47 +83,41 @@
         </div>
 
         <div class="contact-form">
-          <!--
-            FormSubmit.co: tidak butuh PHP/SMTP/App Password.
-            Ganti "akmalaja2009@gmail.com" di JS di bawah kalau email tujuan berubah.
-            PENTING: submit pertama akan mengirim email "Confirm your FormSubmit activation" ke
-            alamat tujuan — klik link aktivasi di email itu dulu sebelum form mulai berfungsi.
-          -->
           <form id="formKontak">
-            <!-- Honeypot: field jebakan bot, disembunyikan lewat class .hp-field -->
-            <div class="hp-field">
-              <label for="website">Website</label>
-              <input type="text" id="website" name="_honey">
-            </div>
+  <!-- Field Honeypot disembunyikan menggunakan CSS inline -->
+  <div style="display:none;">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website">
+  </div>
 
-            <div class="form-group">
-              <label for="nama">Nama Lengkap</label>
-              <input type="text" id="nama" name="nama" placeholder="Nama kamu" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="nama@email.com" required>
-            </div>
-            <div class="form-group">
-              <label for="subjek">Subjek</label>
-              <input type="text" id="subjek" name="subjek" placeholder="Subjek pesan" required>
-            </div>
-            <div class="form-group">
-              <label for="pesan">Pesan</label>
-              <textarea id="pesan" name="pesan" placeholder="Ceritakan pertanyaanmu seputar Fakultas DKV..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-pill btn-orange" id="btnSubmit">
-              <span class="btn-text">KIRIM PESAN</span>
-              <span class="btn-icon">→</span>
-            </button>
+  <div class="form-group">
+    <label for="nama">Nama Lengkap</label>
+    <input type="text" id="nama" name="nama" placeholder="Nama kamu" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+  </div>
+  <!-- Field Subjek Ditambahkan -->
+  <div class="form-group">
+    <label for="subjek">Subjek</label>
+    <input type="text" id="subjek" name="subjek" placeholder="Subjek pesan" required>
+  </div>
+  <div class="form-group">
+    <label for="pesan">Pesan</label>
+    <textarea id="pesan" name="pesan" placeholder="Ceritakan pertanyaanmu seputar Fakultas DKV..." required></textarea>
+  </div>
+  <button type="submit" class="btn btn-pill btn-orange" id="btnSubmit">
+    <span class="btn-text">KIRIM PESAN</span>
+    <span class="btn-icon">→</span>
+  </button>
+  
+  <!-- Tempat untuk menampilkan notifikasi sukses/error -->
+  <div id="notifikasi" style="margin-top: 15px; font-weight: bold; color: var(--white);"></div>
+</form>
 
-            <div id="notifikasi" class="form-status"></div>
-          </form>
-
-          <div class="map-embed">
-            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=106.73%2C-6.32%2C106.77%2C-6.28&layer=mapnik" loading="lazy" title="Lokasi Kampus ITB Ahmad Dahlan"></iframe>
-          </div>
-        </div>
+      <div class="map-embed">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=106.73%2C-6.32%2C106.77%2C-6.28&layer=mapnik" loading="lazy" title="Lokasi Kampus ITB Ahmad Dahlan"></iframe>
       </div>
     </div>
   </div>
@@ -145,15 +139,15 @@
           <ul class="footer-links">
             <li><a href="kontak.html">KONTAK</a></li>
             <li><a href="paket_layanan.html">Q&A</a></li>
-            <li><a href="galeri.html">GALERI KARYA</a></li>
+            <li><a href="#">GALERI KARYA</a></li>
           </ul>
         </div>
         <div>
           <div class="footer-social-label">Follow us</div>
           <ul class="footer-links">
-            <li><a href="https://instagram.com" target="_blank" rel="noopener">INSTAGRAM</a></li>
-            <li><a href="https://youtube.com" target="_blank" rel="noopener">YOUTUBE</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LINKEDIN</a></li>
+            <li><a href="#">INSTAGRAM</a></li>
+            <li><a href="#">YOUTUBE</a></li>
+            <li><a href="#">LINKEDIN</a></li>
           </ul>
         </div>
       </div>
@@ -163,60 +157,45 @@
   <div class="chat-btn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"/></svg></div>
   <script src="script.js"></script>
   <script>
-    // ---- Ganti email tujuan di sini kalau perlu ----
-    const EMAIL_TUJUAN = 'akmalaja2009@gmail.com';
-    const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${EMAIL_TUJUAN}`;
-
-    document.getElementById('formKontak').addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const form = this;
-      const btnSubmit = document.getElementById('btnSubmit');
-      const notifikasi = document.getElementById('notifikasi');
-      const btnText = btnSubmit.querySelector('.btn-text');
-
-      // Honeypot: kalau field jebakan terisi, anggap bot, jangan kirim tapi tetap "sukses" secara diam-diam
-      const honey = form.querySelector('[name="_honey"]').value;
-      if (honey) {
-        form.reset();
-        return;
-      }
-
-      btnSubmit.disabled = true;
-      btnText.textContent = 'MENGIRIM...';
-      notifikasi.textContent = '';
-      notifikasi.className = 'form-status';
-
-      try {
-        const formData = new FormData(form);
-        formData.append('_subject', '[Form Kontak DKV] ' + (formData.get('subjek') || 'Pesan baru dari website'));
-        formData.append('_captcha', 'false'); // set 'true' kalau ingin captcha bawaan FormSubmit
-        formData.append('_template', 'table');
-
-        const response = await fetch(FORMSUBMIT_URL, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          notifikasi.classList.add('success');
-          notifikasi.textContent = 'Pesan terkirim! Tim admisi akan segera menghubungi kamu.';
-          form.reset();
-        } else {
-          notifikasi.classList.add('error');
-          notifikasi.textContent = result.message || 'Maaf, pesan gagal terkirim. Coba lagi atau hubungi kami lewat WhatsApp.';
-        }
-      } catch (error) {
-        notifikasi.classList.add('error');
-        notifikasi.textContent = 'Terjadi kesalahan jaringan. Silakan coba lagi.';
-      } finally {
-        btnSubmit.disabled = false;
-        btnText.textContent = 'KIRIM PESAN';
-      }
+    document.getElementById('formKontak').addEventListener('submit', async function(e) {
+  e.preventDefault(); // Mencegah reload halaman
+  
+  const form = this;
+  const btnSubmit = document.getElementById('btnSubmit');
+  const notifikasi = document.getElementById('notifikasi');
+  const btnText = btnSubmit.querySelector('.btn-text');
+  
+  // Ubah status tombol saat memproses
+  btnSubmit.disabled = true;
+  btnText.textContent = 'MENGIRIM...';
+  notifikasi.textContent = '';
+  
+  try {
+    const formData = new FormData(form);
+    const response = await fetch('send.php', {
+      method: 'POST',
+      body: formData
     });
+    
+    const result = await response.json();
+    
+    if (result.status === 'success') {
+      notifikasi.style.color = '#E4F059'; // Warna sukses
+      notifikasi.textContent = result.message;
+      form.reset(); // Kosongkan form setelah berhasil
+    } else {
+      notifikasi.style.color = '#FF5A00'; // Warna error
+      notifikasi.textContent = result.message;
+    }
+  } catch (error) {
+    notifikasi.style.color = '#FF5A00';
+    notifikasi.textContent = 'Terjadi kesalahan pada server. Silakan coba lagi.';
+  } finally {
+    // Kembalikan status tombol
+    btnSubmit.disabled = false;
+    btnText.textContent = 'KIRIM PESAN';
+  }
+});
   </script>
 </body>
 </html>
