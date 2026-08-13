@@ -102,10 +102,22 @@
       color: var(--black);
     }
 
+    @media (max-width: 1024px) {
+      .page-wrapper { padding-top: 110px; padding-bottom: 80px; }
+    }
     @media (max-width: 768px) {
-      .team-grid { grid-template-columns: 1fr; gap: 40px; }
-      .team-card { padding: 40px 20px; box-shadow: 10px 10px 0 var(--orange); }
+      .nav { padding: 12px 20px; }
+      .page-wrapper { padding-top: 100px; padding-bottom: 60px; }
+      .team-grid { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+      .team-card { padding: 36px 20px; box-shadow: 10px 10px 0 var(--orange); }
       .team-card:hover { box-shadow: 15px 15px 0 var(--black); }
+      .team-img { width: 140px; height: 140px; }
+      .team-name { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+    }
+    @media (max-width: 480px) {
+      .team-card { padding: 28px 16px; }
+      .team-img { width: 120px; height: 120px; }
+      .btn-custom { padding: 10px 14px; font-size: 0.8rem; }
     }
   </style>
 </head>
