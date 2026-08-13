@@ -67,10 +67,21 @@
     .faq-cta { text-align: center; margin-top: 60px; }
     .faq-cta p { color: var(--grey-text); margin-bottom: 20px; font-size: 1.05rem; }
 
+    @media (max-width: 1024px) {
+      .page-wrapper { padding-top: 110px; padding-bottom: 80px; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 12px 20px; }
+      .page-wrapper { padding-top: 100px; padding-bottom: 60px; }
+      .faq-list { margin-top: 36px; gap: 14px; }
+      .faq-question { padding: 20px 18px; gap: 12px; }
+      .faq-answer { padding: 0 18px 22px; font-size: 1rem; }
+      .faq-icon { width: 30px; height: 30px; font-size: 1.15rem; }
+      .faq-cta { margin-top: 40px; }
+    }
     @media (max-width: 480px) {
-      .page-wrapper { padding-top: 100px; }
-      .faq-question { padding: 20px 20px; gap: 12px; }
-      .faq-answer { padding: 0 20px 22px; }
+      .faq-question { padding: 16px 14px; }
+      .faq-answer { padding: 0 14px 18px; }
     }
   </style>
 </head>
